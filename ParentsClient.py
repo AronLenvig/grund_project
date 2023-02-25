@@ -1,6 +1,6 @@
 import tkinter
 import customtkinter
-import main.db_context as db
+import db_context as db
 from functools import partial
 from datetime import datetime
 

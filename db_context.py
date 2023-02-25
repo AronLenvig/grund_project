@@ -2,8 +2,14 @@ import psycopg2
 import psycopg2.extras
 import psycopg2.extensions
 from datetime import datetime, timedelta
+import json
+import os
 
-connection_string = "dbname=grund_project_database user=postgres password=EgElskiPython2022 host=localhost port=5432"
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+with open(__location__ + "/config.json", "r") as f:
+    connectionString = json.load(f)["connectionString"]
+
+connection_string = connectionString
 cur: psycopg2.extras.DictCursor = None
 conn: psycopg2.extensions.connection = None
 
