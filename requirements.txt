@@ -1,0 +1,4 @@
+customtkinter~=5.1.2
+psycopg2-binary~=2.9.5
+Faker~=17.3.0
+
