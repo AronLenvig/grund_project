@@ -16,6 +16,7 @@ class App(ctk.CTk):
         self.parent_client = ParentClient.ParentClient(self)
         self.login_selector()
 
+
     def login_selector(self):
         self.parent_client.pack_forget()
         self.geometry(f"{500}x{580}")
@@ -30,6 +31,8 @@ class App(ctk.CTk):
 
         self.title("Parents Client")
         self.parent_client.pack(in_=self, fill=tk.BOTH, expand=True, padx=0, pady=0)
+
+
 
 def main():
     app = App()

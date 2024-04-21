@@ -3,7 +3,6 @@ import customtkinter as ctk
 import os
 from Employee_client.EmployeeMainBody import EmployeeMainBody
 
-
 ctk.set_appearance_mode("system")  # Modes: system (default), light, dark
 ctk.set_default_color_theme("dark-blue") # Themes: blue (default), dark-blue, green
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -35,7 +34,11 @@ class App(ctk.CTk):
         self.division_buttons.grid(row=1, column=0, sticky="ew")
         #preselect the first button
         self.division_buttons.set("Nature")
+        self.fixed_update()
 
+    def fixed_update(self):
+        self.main_body.refresh()
+        self.after(1000, self.fixed_update)
 
 def main():
     app = App()

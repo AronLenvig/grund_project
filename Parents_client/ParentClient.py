@@ -1,3 +1,4 @@
+from time import sleep
 import tkinter as tk
 import customtkinter as ctk
 import data.db_context as db
@@ -50,6 +51,14 @@ class ParentClient(ctk.CTkFrame):
         # logout button on the bottom right corner increase the size of the button
         self.logout_button = ctk.CTkButton(self, text="Logout", command=self.logout)
         self.logout_button.grid(row=2, column=3, padx=10, pady=(10, 0), sticky="nsew")
+
+        
+
+    def fixed_update(self):
+        sleep(1)
+        self.refresh()
+        self.after(1000, self.fixed_update)
+
 
     def refresh(self):
         self.children_selector.update_children_view_from_selected_parents(self.parent_id)

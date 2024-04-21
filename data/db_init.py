@@ -30,9 +30,7 @@ def inilize_db():
     cur.execute("CREATE TABLE IF NOT EXISTS ChildUsers (id SERIAL PRIMARY KEY, ParentID INTEGER NOT NULL, FOREIGN KEY (ParentID) REFERENCES ParentUsers(id), UserName VARCHAR(50) NOT NULL, Division VARCHAR(50) NOT NULL, loged_in BOOLEAN NOT NULL);")
     cur.execute("CREATE TABLE IF NOT EXISTS LoginTimeTracker (id SERIAL PRIMARY KEY, ChildID INTEGER NOT NULL, LoginTime TIMESTAMP NOT NULL, LogoutTime TIMESTAMP, FOREIGN KEY (ChildID) REFERENCES ChildUsers(id));")
     cur.execute("CREATE TABLE IF NOT EXISTS Notes (id SERIAL PRIMARY KEY, ChildID INTEGER NOT NULL, Date TIMESTAMP NOT NULL, Note VARCHAR(1000) NOT NULL, is_staff BOOLEAN NOT NULL, FOREIGN KEY (ChildID) REFERENCES ChildUsers(id));")
-    # divsion notes all in one table not child id
     cur.execute("CREATE TABLE IF NOT EXISTS DivisionNotes (id SERIAL PRIMARY KEY, Date TIMESTAMP NOT NULL, Note VARCHAR(1000) NOT NULL, Division VARCHAR(50) NOT NULL);")
-    # company notes all in one table not child id
     cur.execute("CREATE TABLE IF NOT EXISTS companyNotes (id SERIAL PRIMARY KEY, Date TIMESTAMP NOT NULL, Note VARCHAR(1000) NOT NULL);")
     conn.commit()
 

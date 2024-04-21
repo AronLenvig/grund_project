@@ -53,6 +53,7 @@ class ParentLogin(ctk.CTkFrame):
             self.password_entry.delete(0, tk.END)
             self.app.parent_client.children_selector.update_children_view_from_selected_parents(parent_id)
             self.app.main_selector()
+            self.app.parent_client.fixed_update()
         else:
             db.close()
             if len(parent) < 3 or len(parent) > 20:
